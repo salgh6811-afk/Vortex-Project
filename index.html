@@ -9,18 +9,17 @@
             margin: 0; padding: 0; height: 100%;
             background-color: #000000;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
+            overflow: hidden;
             color: white;
         }
 
         .vortex-container {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
         }
 
         .vortex-title {
@@ -31,29 +30,24 @@
             text-shadow: 0 0 20px #00d2ff;
         }
 
-        /* تنسيق شبكة الأزرار لظهور الأزرار الجديدة */
         .btn-group { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
             gap: 15px; 
             max-width: 600px;
-            width: 100%;
         }
 
         .main-btn {
-            padding: 12px 10px;
+            padding: 12px 25px;
             border: 2px solid #00d2ff;
             color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 15px;
             font-weight: bold;
             background: rgba(0, 210, 255, 0.1);
             transition: 0.3s;
             cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-size: 1rem;
         }
 
         .main-btn:hover {
@@ -63,21 +57,15 @@
             transform: translateY(-3px);
         }
 
-        /* زر دخول السيرفر يأخذ عرض كامل */
-        .full-width { grid-column: span 2; }
-
-        /* تمييز أزرار التقديم باللون الوردي */
         .apply-btn { 
             border-color: #ff00ff; 
             background: rgba(255, 0, 255, 0.1); 
-            color: #fff;
         }
         .apply-btn:hover { 
             background: #ff00ff; 
             box-shadow: 0 0 20px #ff00ff; 
         }
 
-        /* نافذة القوانين */
         .modal {
             display: none; position: fixed; z-index: 1000;
             left: 0; top: 0; width: 100%; height: 100%;
@@ -100,13 +88,14 @@
     <div class="vortex-container">
         <h1 class="vortex-title">Vortex Community</h1>
         <div class="btn-group">
-            <a href="https://discord.gg/ydptj63w4Q" target="_blank" class="main-btn full-width">دخول السيرفر 🚀</a>
+            <a href="https://discord.gg/ydptj63w4Q" target="_blank" class="main-btn" style="grid-column: span 2;">دخول السيرفر 🚀</a>
             
             <button class="main-btn" onclick="showRules()">القوانين ⚖️</button>
             <a href="https://discord.com/channels/1461481866631712932/1461481869513326687" target="_blank" class="main-btn">الدعم الفني 🛠️</a>
             
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform" target="_blank" class="main-btn apply-btn">تقديم إدارة عليا ⭐</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform" target="_blank" class="main-btn apply-btn">تقديم إدارة عادية 🛡️</a>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform" target="_blank" class="main-btn apply-btn">تقديم إدارة عادية 🛡️</a>
         </div>
     </div>
 
@@ -114,16 +103,11 @@
         <div class="modal-content">
             <span class="close-btn" onclick="hideRules()">&times;</span>
             <h2 style="text-align: center; color: #ff00ff; margin-bottom: 25px;">📜 قوانين Vortex</h2>
-            <div class="rule-item">يلتزم الجميع بالأدب والاحترام المتبادل.</div>
-            <div class="rule-item">يُحظر الإزعاج، السبام، وتكرار الرسائل المزعجة.</div>
-            <div class="rule-item">يمنع نشر أي محتوى مخالف للأخلاق أو روابط مشبوهة.</div>
-            <div class="rule-item">تُدار النقاشات بأسلوب حضاري بعيداً عن الجدال.</div>
-            <div class="rule-item">يمنع الترويج لأي جهة دون موافقة الإدارة.</div>
-            <div class="rule-item">يجب أن تكون الأسماء والصور الشخصية لائقة.</div>
-            <div class="rule-item">يمنع استغلال الأخطاء التقنية أو الثغرات.</div>
-            <div class="rule-item">قرارات فريق الإدارة نهائية وملزمة للجميع.</div>
-            <div class="rule-item">تتدرج العقوبات من التحذير وصولاً للحظر الدائم.</div>
-            <div class="rule-item">استمرارك في السيرفر يعني موافقتك على القوانين.</div>
+            <div class="rule-item">1. الاحترام المتبادل بين الجميع.</div>
+            <div class="rule-item">2. يمنع السبام والإزعاج.</div>
+            <div class="rule-item">3. الالتزام بالمحتوى اللائق.</div>
+            <div class="rule-item">4. يمنع نشر الروابط الخارجية دون إذن.</div>
+            <div class="rule-item">5. قرارات الإدارة نهائية وعادلة.</div>
         </div>
     </div>
 
