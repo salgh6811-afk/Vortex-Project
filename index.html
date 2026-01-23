@@ -3,92 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌀</text></svg>">
     <title>Vortex Community | الواجهة الرسمية</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
-        :root { --primary: #00d2ff; --secondary: #ff00ff; --bg: #050505; }
-        body, html { margin: 0; padding: 0; background-color: var(--bg); font-family: 'Segoe UI', sans-serif; color: white; scroll-behavior: smooth; overflow-x: hidden; user-select: none; }
-
-        /* Navbar */
-        .navbar { position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(15px); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; border-bottom: 1px solid rgba(0, 210, 255, 0.2); box-sizing: border-box; }
-        .nav-logo { font-size: 1.8rem; font-weight: 900; color: var(--primary); text-decoration: none; text-shadow: 0 0 15px var(--primary); }
-
-        /* Hero Section - التأكد من توسيط كل شيء */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #111 0%, #000 100%); position: relative; }
-        .vortex-logo-main { font-size: clamp(4rem, 15vw, 8rem); font-weight: 900; color: #fff; text-shadow: 0 0 30px var(--primary); margin: 0; }
-        
-        /* الزر المطلوب في المنتصف */
-        .center-btn {
-            display: inline-block; margin-top: 30px; padding: 15px 45px; border-radius: 50px; 
-            border: 2px solid var(--primary); color: white; text-decoration: none; font-weight: bold; 
-            font-size: 1.2rem; transition: 0.3s; background: rgba(0, 210, 255, 0.1); z-index: 100;
+        /* إعدادات تضمن عدم ظهور شاشة سوداء فارغة */
+        body {
+            margin: 0; padding: 0; 
+            background-color: #000000; /* خلفية سوداء سادة لضمان التحميل */
+            color: white; font-family: sans-serif;
+            text-align: center;
         }
-        .center-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 40px var(--primary); transform: scale(1.05); }
 
-        /* Features */
-        .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .feat-card { background: rgba(255, 255, 255, 0.03); padding: 50px 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; transition: 0.4s; }
-        .feat-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        /* الهيدر العلوي */
+        .navbar {
+            background: #0a0a0a; padding: 20px;
+            border-bottom: 2px solid #00d2ff;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .nav-logo { color: #00d2ff; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
 
-        /* Apply Section */
-        .apply-section { padding: 80px 8%; text-align: center; }
-        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
-        .v-btn { padding: 12px 30px; border-radius: 50px; border: 2px solid var(--primary); color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .v-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 20px var(--primary); }
-        .v-btn.alt { border-color: var(--secondary); }
-        .v-btn.alt:hover { background: var(--secondary); box-shadow: 0 0 20px var(--secondary); }
+        /* القسم الرئيسي */
+        .hero {
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #000000, #111111);
+        }
+        .vortex-title {
+            font-size: 5rem; margin: 0;
+            color: white; text-shadow: 0 0 20px #00d2ff;
+        }
+
+        /* الزر المطلوب في المنتصف - تم التأكد من ظهوره */
+        .center-btn {
+            display: inline-block; margin-top: 30px;
+            padding: 15px 40px; border: 2px solid #00d2ff;
+            color: white; text-decoration: none; border-radius: 50px;
+            font-weight: bold; background: rgba(0, 210, 255, 0.1);
+        }
+        .center-btn:hover { background: #00d2ff; color: black; }
+
+        /* البطاقات الثلاث */
+        .features {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 20px; padding: 50px 10%;
+        }
+        .card {
+            background: #111; border: 1px solid #222;
+            padding: 30px; border-radius: 15px; width: 280px;
+        }
+        .card h3 { color: #00d2ff; margin-bottom: 10px; }
+
+        /* التقديمات */
+        .apply { padding: 50px; }
+        .apply-btn {
+            display: inline-block; margin: 10px;
+            padding: 10px 25px; border: 2px solid #ff00ff;
+            color: white; text-decoration: none; border-radius: 50px;
+        }
     </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
     <nav class="navbar">
         <a href="#" class="nav-logo">VORTEX</a>
-        <div class="nav-links">
-            <a href="#about" style="color:white; text-decoration:none; margin-left:15px;">عن المجتمع</a>
-            <a href="#apply" style="color:white; text-decoration:none;">التقديمات</a>
-        </div>
     </nav>
 
     <section class="hero">
-        <h1 class="vortex-logo-main">VORTEX</h1>
-        <p style="color:#888; font-size: 1.2rem; margin-top: 5px;">المجتمع الأقوى</p>
+        <h1 class="vortex-title">VORTEX</h1>
+        <p style="color: #888;">المجتمع الأقوى</p>
         <a href="#about" class="center-btn">ابدأ رحلتك معنا</a>
     </section>
 
     <section id="about" class="features">
-        <div class="feat-card">
-            <i class="fas fa-users" style="color:var(--primary); font-size: 2rem; margin-bottom: 15px;"></i>
+        <div class="card">
             <h3>🤝 مجتمع متفاعل</h3>
-            <p>مكان يجمع المبدعين واللاعبين في أجواء يسودها الاحترام والتعاون.</p>
+            <p>مكان يجمع المبدعين واللاعبين في أجواء يسودها الاحترام.</p>
         </div>
-        <div class="feat-card">
-            <i class="fas fa-shield-alt" style="color:var(--primary); font-size: 2rem; margin-bottom: 15px;"></i>
+        <div class="card">
             <h3>🛡️ بيئة آمنة</h3>
-            <p>نظام حماية متطور وفريق إشراف يعمل لضمان أفضل تجربة.</p>
+            <p>نظام حماية متطور لضمان أفضل تجربة للمستخدمين.</p>
         </div>
-        <div class="feat-card">
-            <i class="fas fa-gamepad" style="color:var(--primary); font-size: 2rem; margin-bottom: 15px;"></i>
+        <div class="card">
             <h3>🎮 فعاليات يومية</h3>
-            <p>بطولات، تحديات، وجوائز مستمرة لكل الأعضاء النشطين.</p>
+            <p>تحديات وجوائز مستمرة لكل الأعضاء في السيرفر.</p>
         </div>
     </section>
 
-    <section id="apply" class="apply-section">
-        <h2 style="font-size: 2.8rem;">انضم لفريق الإدارة</h2>
-        <div class="btn-container">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="v-btn alt">تقديم إدارة عليا ⭐</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="v-btn alt">تقديم إدارة عادية 🛡️</a>
-            <a href="https://discord.gg/ydptj63w4Q" target="_blank" rel="noopener noreferrer" class="v-btn">سيرفر الديسكورد 🚀</a>
-        </div>
+    <section class="apply">
+        <h2>انضم للإدارة</h2>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform?usp=dialog" target="_blank" class="apply-btn">إدارة عليا ⭐</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform?usp=dialog" target="_blank" class="apply-btn">إدارة عادية 🛡️</a>
     </section>
 
-    <script>
-        ScrollReveal().reveal('.feat-card', { delay: 200, origin: 'bottom', distance: '40px', interval: 150 });
-        // منع F12 و Ctrl+U
-        document.onkeydown = function(e) { if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false; }
-    </script>
 </body>
 </html>
