@@ -37,4 +37,58 @@
         .apply-section { padding: 80px 8%; text-align: center; }
         .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
         .v-btn { padding: 12px 30px; border-radius: 50px; border: 2px solid var(--primary); color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .v-btn:hover {
+        .v-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 20px var(--primary); }
+        .v-btn.alt { border-color: var(--secondary); }
+        .v-btn.alt:hover { background: var(--secondary); box-shadow: 0 0 20px var(--secondary); }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <nav class="navbar">
+        <a href="#" class="nav-logo">VORTEX</a>
+        <div class="nav-links">
+            <a href="#about" style="color:white; text-decoration:none; margin-left:15px;">عن المجتمع</a>
+            <a href="#apply" style="color:white; text-decoration:none;">التقديمات</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="vortex-logo-main">VORTEX</h1>
+        <p style="color:#888; font-size: 1.2rem; margin-top: 5px;">المجتمع الأقوى</p>
+        <a href="#about" class="center-btn">ابدأ رحلتك معنا</a>
+    </section>
+
+    <section id="about" class="features">
+        <div class="feat-card">
+            <i class="fas fa-users" style="color:var(--primary); font-size: 2rem; margin-bottom: 15px;"></i>
+            <h3>🤝 مجتمع متفاعل</h3>
+            <p>مكان يجمع المبدعين واللاعبين في أجواء يسودها الاحترام والتعاون.</p>
+        </div>
+        <div class="feat-card">
+            <i class="fas fa-shield-alt" style="color:var(--primary); font-size: 2rem; margin-bottom: 15px;"></i>
+            <h3>🛡️ بيئة آمنة</h3>
+            <p>نظام حماية متطور وفريق إشراف يعمل لضمان أفضل تجربة.</p>
+        </div>
+        <div class="feat-card">
+            <i class="fas fa-gamepad" style="color:var(--primary); font-size: 2rem; margin-bottom: 15px;"></i>
+            <h3>🎮 فعاليات يومية</h3>
+            <p>بطولات، تحديات، وجوائز مستمرة لكل الأعضاء النشطين.</p>
+        </div>
+    </section>
+
+    <section id="apply" class="apply-section">
+        <h2 style="font-size: 2.8rem;">انضم لفريق الإدارة</h2>
+        <div class="btn-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="v-btn alt">تقديم إدارة عليا ⭐</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="v-btn alt">تقديم إدارة عادية 🛡️</a>
+            <a href="https://discord.gg/ydptj63w4Q" target="_blank" rel="noopener noreferrer" class="v-btn">سيرفر الديسكورد 🚀</a>
+        </div>
+    </section>
+
+    <script>
+        ScrollReveal().reveal('.feat-card', { delay: 200, origin: 'bottom', distance: '40px', interval: 150 });
+        // منع F12 و Ctrl+U
+        document.onkeydown = function(e) { if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false; }
+    </script>
+</body>
+</html>
