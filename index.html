@@ -24,7 +24,7 @@
             background-color: var(--bg);
             font-family: 'Segoe UI', Roboto, sans-serif;
             color: white; scroll-behavior: smooth; overflow-x: hidden;
-            user-select: none; /* حماية: منع النسخ */
+            user-select: none; /* حماية من النسخ */
         }
 
         /* --- Navbar --- */
@@ -37,8 +37,7 @@
         }
 
         .nav-logo { font-size: 1.8rem; font-weight: 900; color: var(--primary); text-decoration: none; text-shadow: 0 0 15px var(--primary); }
-        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; font-size: 0.9rem; }
 
         /* --- Hero --- */
         .hero {
@@ -50,100 +49,27 @@
         .vortex-logo-main {
             font-size: clamp(4rem, 15vw, 8rem); font-weight: 900;
             color: #fff; text-shadow: 0 0 30px var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
+        /* الزر الذي طلبته في المنتصف */
+        .center-btn {
+            margin-top: 25px;
+            padding: 15px 40px; border-radius: 50px; border: 2px solid var(--primary);
+            color: white; text-decoration: none; font-weight: bold; transition: 0.3s;
+            background: transparent; cursor: pointer;
+        }
+        .center-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 30px var(--primary); }
+
         /* --- قسم البطاقات --- */
-        .features { padding: 60px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         
         .feat-card {
             background: rgba(255, 255, 255, 0.03); padding: 50px 30px; border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; transition: 0.4s;
         }
         .feat-card:hover { transform: translateY(-10px); border-color: var(--primary); background: rgba(0, 210, 255, 0.05); }
-        .feat-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: #fff; }
-        .feat-card p { color: #888; font-size: 0.95rem; line-height: 1.6; }
+        .feat-card h3 { font-size: 1.6rem; margin-bottom: 15px; }
 
         /* --- قسم التقديمات --- */
-        .apply-section { padding: 80px 8%; text-align: center; }
-        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
-
-        .v-btn {
-            padding: 12px 30px; border-radius: 50px; border: 2px solid var(--primary);
-            color: white; text-decoration: none; font-weight: bold; transition: 0.3s;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .v-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 20px var(--primary); }
-        .v-btn.alt { border-color: var(--secondary); }
-        .v-btn.alt:hover { background: var(--secondary); box-shadow: 0 0 20px var(--secondary); }
-
-        footer { padding: 30px; text-align: center; color: #444; font-size: 0.8rem; border-top: 1px solid #111; }
-    </style>
-</head>
-<body oncontextmenu="return false;"> <nav class="navbar">
-        <a href="#" class="nav-logo">VORTEX</a>
-        <div class="nav-links">
-            <a href="#about">عن المجتمع</a>
-            <a href="#apply">التقديمات</a>
-            <a href="https://discord.gg/ydptj63w4Q" target="_blank" rel="noopener noreferrer">انضم لنا</a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <h1 class="vortex-logo-main">VORTEX</h1>
-        <p style="color:#888;">المجتمع الأقوى</p>
-    </section>
-
-    <section id="about" class="features">
-        <div class="feat-card">
-            <i class="fas fa-users" style="color:var(--primary); font-size: 2rem; margin-bottom: 15px;"></i>
-            <h3>🤝 مجتمع متفاعل</h3>
-            <p>مكان يجمع المبدعين واللاعبين في أجواء يسودها الاحترام والتعاون الدائم.</p>
-        </div>
-        <div class="feat-card">
-            <i class="fas fa-shield-alt" style="color:var(--primary); font-size: 2rem; margin-bottom: 15px;"></i>
-            <h3>🛡️ بيئة آمنة</h3>
-            <p>نظام حماية متطور وفريق إشراف يعمل على مدار الساعة لضمان أفضل تجربة.</p>
-        </div>
-        <div class="feat-card">
-            <i class="fas fa-gamepad" style="color:var(--primary); font-size: 2rem; margin-bottom: 15px;"></i>
-            <h3>🎮 فعاليات يومية</h3>
-            <p>بطولات، تحديات، وجوائز مستمرة لكل الأعضاء النشطين في السيرفر.</p>
-        </div>
-    </section>
-
-    <section id="apply" class="apply-section">
-        <h2 style="font-size: 2.8rem;">انضم لفريق الإدارة</h2>
-        <p style="color:#666; margin-top:10px;">نبحث عن المبدعين والشخصيات القيادية لتطوير مجتمعنا</p>
-        
-        <div class="btn-container">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform?usp=dialog" 
-               target="_blank" rel="noopener noreferrer" class="v-btn alt">تقديم إدارة عليا ⭐</a>
-            
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform?usp=dialog" 
-               target="_blank" rel="noopener noreferrer" class="v-btn alt">تقديم إدارة عادية 🛡️</a>
-            
-            <a href="https://discord.gg/ydptj63w4Q" target="_blank" rel="noopener noreferrer" class="v-btn">
-                <i class="fab fa-discord"></i> سيرفر الديسكورد
-            </a>
-        </div>
-    </section>
-
-    <footer>
-        &copy; 2026 Vortex Community. جميع الحقوق محفوظة. <br>
-        <span style="opacity: 0.4;">Secure & Encrypted Site 🔒</span>
-    </footer>
-
-    <script>
-        // تفعيل الحركات
-        ScrollReveal().reveal('.feat-card', { delay: 200, origin: 'bottom', distance: '40px', interval: 150 });
-        
-        // منع الاختصارات الأمنية (F12, Ctrl+U)
-        document.onkeydown = function(e) {
-            if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) {
-                return false;
-            }
-        }
-    </script>
-</body>
-</html>
+        .apply-section { padding: 80px 8%; text
