@@ -3,94 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vortex Community | الموقع الرسمي</title>
+    <meta name="referrer" content="no-referrer"> <title>Vortex Community | الموقع الرسمي المؤمن</title>
     <style>
-        /* إعدادات الصفحة الأساسية لضمان عدم وجود شاشة سوداء فارغة */
         body, html {
             margin: 0; padding: 0; min-height: 100vh;
             background-color: #000000;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white; display: flex; flex-direction: column;
+            user-select: none; /* منع نسخ المحتوى للحماية */
         }
 
-        /* الشريط العلوي */
         .navbar {
             width: 100%; padding: 20px 50px; display: flex;
             justify-content: space-between; align-items: center;
-            background: rgba(0, 0, 0, 0.9); border-bottom: 1px solid #00d2ff;
+            background: rgba(0, 0, 0, 0.9); border-bottom: 2px solid #00d2ff;
             box-sizing: border-box; position: fixed; top: 0; z-index: 1000;
         }
 
-        .nav-logo { font-size: 1.5rem; font-weight: bold; color: #00d2ff; text-decoration: none; }
-        .nav-links a { color: white; text-decoration: none; margin-right: 20px; font-size: 0.9rem; }
-
-        /* المحتوى الرئيسي */
+        .nav-logo { font-size: 1.8rem; font-weight: 900; color: #00d2ff; text-decoration: none; text-shadow: 0 0 10px #00d2ff; }
+        
         .main-content {
             flex: 1; display: flex; flex-direction: column;
             justify-content: center; align-items: center;
-            padding-top: 100px; text-align: center;
+            padding-top: 120px; text-align: center;
         }
 
         .vortex-title {
-            font-size: clamp(3rem, 10vw, 6rem); margin: 0;
-            text-shadow: 0 0 20px #00d2ff; font-weight: bold;
+            font-size: clamp(3.5rem, 12vw, 7rem); margin: 0;
+            text-shadow: 0 0 30px #00d2ff; font-weight: 900;
+            background: linear-gradient(to bottom, #fff, #00d2ff);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .subtitle { color: #888; margin-bottom: 40px; font-size: 1.2rem; }
-
-        /* حاوية الأزرار - التأكد من ظهورها بوضوح */
         .btn-group {
             display: grid; grid-template-columns: repeat(2, 1fr);
-            gap: 20px; width: 90%; max-width: 600px; z-index: 100;
+            gap: 20px; width: 90%; max-width: 600px; margin-top: 40px;
         }
 
         .main-btn {
-            padding: 15px 25px; border: 2px solid #00d2ff;
+            padding: 18px; border: 2px solid #00d2ff;
             color: white; text-decoration: none; border-radius: 15px;
-            font-weight: bold; background: rgba(0, 210, 255, 0.1);
-            transition: 0.3s; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; background: rgba(0, 210, 255, 0.05);
+            transition: 0.4s; display: flex; align-items: center; justify-content: center;
+            text-transform: uppercase;
         }
 
-        .main-btn:hover { background: #00d2ff; color: black; box-shadow: 0 0 20px #00d2ff; }
+        .main-btn:hover { background: #00d2ff; color: black; box-shadow: 0 0 30px #00d2ff; transform: scale(1.05); }
 
-        .apply-btn { border-color: #ff00ff; background: rgba(255, 0, 255, 0.1); }
-        .apply-btn:hover { background: #ff00ff; box-shadow: 0 0 20px #ff00ff; }
+        .apply-btn { border-color: #ff00ff; }
+        .apply-btn:hover { background: #ff00ff; box-shadow: 0 0 30px #ff00ff; }
 
-        /* قسم المميزات أسفل الصفحة */
-        .features {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px; padding: 50px 10%; width: 100%; box-sizing: border-box;
-        }
-
-        .card { background: #111; padding: 30px; border-radius: 20px; border: 1px solid #222; }
+        .secure-badge { margin-top: 30px; color: #00ff00; font-size: 0.9rem; font-weight: bold; }
     </style>
 </head>
-<body>
-
-    <nav class="navbar">
+<body oncontextmenu="return false;"> <nav class="navbar">
         <a href="#" class="nav-logo">VORTEX</a>
-        <div class="nav-links">
-            <a href="https://discord.gg/ydptj63w4Q" target="_blank">الديسكورد</a>
-            <a href="#">القوانين</a>
-            <a href="#">الدعم</a>
-        </div>
+        <div style="font-weight: bold;">SITE SECURED 🔒</div>
     </nav>
 
     <div class="main-content">
         <h1 class="vortex-title">VORTEX</h1>
-        <p class="subtitle">المجتمع الأقوى والأكثر تفاعلاً</p>
+        <p style="color: #888; font-size: 1.2rem;">نظام إداري متطور ومحمي بالكامل</p>
         
         <div class="btn-group">
-            <a href="https://discord.gg/ydptj63w4Q" target="_blank" class="main-btn" style="grid-column: span 2;">دخول السيرفر ✨</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform?usp=dialog" target="_blank" class="main-btn apply-btn">تقديم إدارة عليا ⭐</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform?usp=dialog" target="_blank" class="main-btn apply-btn">تقديم إدارة عادية 🛡️</a>
+            <a href="https://discord.gg/ydptj63w4Q" target="_blank" rel="noopener noreferrer" class="main-btn" style="grid-column: span 2;">دخول السيرفر 🚀</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="main-btn apply-btn">إدارة عليا ⭐</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="main-btn apply-btn">إدارة عادية 🛡️</a>
         </div>
-    </div>
 
-    <div class="features">
-        <div class="card"><h3>فعاليات مستمرة</h3><p>جوائز وتحديات يومية لكل الأعضاء.</p></div>
-        <div class="card"><h3>حماية متطورة</h3><p>نظام أمان عالي لضمان خصوصيتك.</p></div>
-        <div class="card"><h3>مجتمع راقي</h3><p>بيئة تحترم الجميع وتدعم الإبداع.</p></div>
+        <div class="secure-badge">✅ اتصال مشفر وآمن 256-bit SSL</div>
     </div>
 
 </body>
