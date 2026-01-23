@@ -4,78 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vortex Community | الموقع الرسمي</title>
-    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
-        :root {
-            --primary: #00d2ff;
-            --secondary: #ff00ff;
-            --bg: #000000;
-        }
-
+        /* إعدادات الصفحة الأساسية لضمان عدم وجود شاشة سوداء فارغة */
         body, html {
-            margin: 0; padding: 0;
-            background-color: var(--bg);
-            font-family: 'Segoe UI', sans-serif;
-            color: white; scroll-behavior: smooth;
+            margin: 0; padding: 0; min-height: 100vh;
+            background-color: #000000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white; display: flex; flex-direction: column;
         }
 
-        /* شريط علوي بسيط ومضمون */
+        /* الشريط العلوي */
         .navbar {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px 5%; display: flex; justify-content: space-between;
-            align-items: center; z-index: 1000; border-bottom: 1px solid var(--primary);
-            box-sizing: border-box;
+            width: 100%; padding: 20px 50px; display: flex;
+            justify-content: space-between; align-items: center;
+            background: rgba(0, 0, 0, 0.9); border-bottom: 1px solid #00d2ff;
+            box-sizing: border-box; position: fixed; top: 0; z-index: 1000;
         }
 
-        .nav-logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+        .nav-logo { font-size: 1.5rem; font-weight: bold; color: #00d2ff; text-decoration: none; }
+        .nav-links a { color: white; text-decoration: none; margin-right: 20px; font-size: 0.9rem; }
 
-        /* واجهة البداية */
-        .hero {
-            height: 100vh; display: flex; flex-direction: column;
+        /* المحتوى الرئيسي */
+        .main-content {
+            flex: 1; display: flex; flex-direction: column;
             justify-content: center; align-items: center;
-            background: radial-gradient(circle, #111 0%, #000 100%);
-            text-align: center;
+            padding-top: 100px; text-align: center;
         }
 
-        .hero-title { 
-            font-size: clamp(3rem, 10vw, 6rem); 
-            margin: 0; color: white;
-            text-shadow: 0 0 20px var(--primary);
+        .vortex-title {
+            font-size: clamp(3rem, 10vw, 6rem); margin: 0;
+            text-shadow: 0 0 20px #00d2ff; font-weight: bold;
         }
 
-        /* حاوية الأزرار */
+        .subtitle { color: #888; margin-bottom: 40px; font-size: 1.2rem; }
+
+        /* حاوية الأزرار - التأكد من ظهورها بوضوح */
         .btn-group {
             display: grid; grid-template-columns: repeat(2, 1fr);
-            gap: 15px; margin-top: 30px; width: 90%; max-width: 500px;
+            gap: 20px; width: 90%; max-width: 600px; z-index: 100;
         }
 
         .main-btn {
-            padding: 15px; border: 2px solid var(--primary);
-            color: white; text-decoration: none; border-radius: 12px;
-            font-weight: bold; transition: 0.3s; background: rgba(0, 210, 255, 0.1);
-            display: flex; align-items: center; justify-content: center;
+            padding: 15px 25px; border: 2px solid #00d2ff;
+            color: white; text-decoration: none; border-radius: 15px;
+            font-weight: bold; background: rgba(0, 210, 255, 0.1);
+            transition: 0.3s; display: flex; align-items: center; justify-content: center;
         }
 
-        .main-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 20px var(--primary); }
+        .main-btn:hover { background: #00d2ff; color: black; box-shadow: 0 0 20px #00d2ff; }
 
-        .apply-btn { border-color: var(--secondary); background: rgba(255, 0, 255, 0.1); }
-        .apply-btn:hover { background: var(--secondary); box-shadow: 0 0 20px var(--secondary); }
+        .apply-btn { border-color: #ff00ff; background: rgba(255, 0, 255, 0.1); }
+        .apply-btn:hover { background: #ff00ff; box-shadow: 0 0 20px #ff00ff; }
 
-        /* قسم المميزات */
-        .features { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: #111; padding: 30px; border-radius: 15px; border: 1px solid #222; text-align: center; }
+        /* قسم المميزات أسفل الصفحة */
+        .features {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; padding: 50px 10%; width: 100%; box-sizing: border-box;
+        }
+
+        .card { background: #111; padding: 30px; border-radius: 20px; border: 1px solid #222; }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
         <a href="#" class="nav-logo">VORTEX</a>
-        <div style="font-size: 0.8rem;">
-            <a href="https://discord.gg/ydptj63w4Q" style="color:white; text-decoration:none;">الديسكورد</a>
+        <div class="nav-links">
+            <a href="https://discord.gg/ydptj63w4Q" target="_blank">الديسكورد</a>
+            <a href="#">القوانين</a>
+            <a href="#">الدعم</a>
         </div>
     </nav>
 
-    <section class="hero">
-        <h1 class="hero-title">VORTEX</h1>
-        <p style="color: #888; margin-top: 10px;">المجتمع الأ
+    <div class="main-content">
+        <h1 class="vortex-title">VORTEX</h1>
+        <p class="subtitle">المجتمع الأقوى والأكثر تفاعلاً</p>
+        
+        <div class="btn-group">
+            <a href="https://discord.gg/ydptj63w4Q" target="_blank" class="main-btn" style="grid-column: span 2;">دخول السيرفر ✨</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform?usp=dialog" target="_blank" class="main-btn apply-btn">تقديم إدارة عليا ⭐</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform?usp=dialog" target="_blank" class="main-btn apply-btn">تقديم إدارة عادية 🛡️</a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="card"><h3>فعاليات مستمرة</h3><p>جوائز وتحديات يومية لكل الأعضاء.</p></div>
+        <div class="card"><h3>حماية متطورة</h3><p>نظام أمان عالي لضمان خصوصيتك.</p></div>
+        <div class="card"><h3>مجتمع راقي</h3><p>بيئة تحترم الجميع وتدعم الإبداع.</p></div>
+    </div>
+
+</body>
+</html>
