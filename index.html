@@ -3,60 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vortex Community | الملاذ الآمن للأساطير</title>
+    <title>Vortex Community | الموقع الرسمي</title>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #00d2ff;
             --secondary: #ff00ff;
-            --dark: #050505;
-            --glass: rgba(255, 255, 255, 0.05);
+            --bg: #000000;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background-color: var(--dark);
-            font-family: 'Cairo', sans-serif;
-            color: white; scroll-behavior: smooth; overflow-x: hidden;
+        body, html {
+            margin: 0; padding: 0;
+            background-color: var(--bg);
+            font-family: 'Segoe UI', sans-serif;
+            color: white; scroll-behavior: smooth;
         }
 
-        /* --- شريط علوي شفاف وذكي --- */
+        /* شريط علوي بسيط ومضمون */
         .navbar {
             position: fixed; top: 0; width: 100%;
-            padding: 20px 8%; display: flex; justify-content: space-between;
-            align-items: center; z-index: 2000;
-            background: rgba(0,0,0,0.7); backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 5%; display: flex; justify-content: space-between;
+            align-items: center; z-index: 1000; border-bottom: 1px solid var(--primary);
+            box-sizing: border-box;
         }
 
-        .nav-logo { font-size: 2rem; font-weight: 900; color: var(--primary); text-decoration: none; text-shadow: 0 0 20px var(--primary); }
-        .nav-links a { color: white; text-decoration: none; margin-left: 30px; transition: 0.3s; font-weight: 600; }
-        .nav-links a:hover { color: var(--secondary); text-shadow: 0 0 10px var(--secondary); }
+        .nav-logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-decoration: none; }
 
-        /* --- واجهة البداية (Hero) مع خلفية متحركة --- */
+        /* واجهة البداية */
         .hero {
             height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center;
-            position: relative; overflow: hidden;
+            background: radial-gradient(circle, #111 0%, #000 100%);
+            text-align: center;
         }
 
-        #bg-video {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; opacity: 0.3; z-index: -1;
+        .hero-title { 
+            font-size: clamp(3rem, 10vw, 6rem); 
+            margin: 0; color: white;
+            text-shadow: 0 0 20px var(--primary);
         }
 
-        .hero-content { z-index: 10; text-align: center; }
-        .hero-title { font-size: clamp(4rem, 15vw, 8rem); font-weight: 900; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 30px rgba(0, 210, 255, 0.5)); }
-        .hero-tagline { font-size: 1.5rem; margin-top: 20px; color: #ccc; letter-spacing: 2px; }
-
-        /* --- قسم الإحصائيات (Stats) --- */
-        .stats-container {
-            display: flex; justify-content: center; gap: 50px; margin-top: 50px;
+        /* حاوية الأزرار */
+        .btn-group {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 15px; margin-top: 30px; width: 90%; max-width: 500px;
         }
-        .stat-item h2 { font-size: 2.5rem; color: var(--primary); }
-        .stat-item p { color: #888; }
 
-        /* --- قسم المميزات (Features) --- */
-        .section-title { text-align: center; font-size: 3rem; margin: 80px 0 40px; }
-        .features { padding:
+        .main-btn {
+            padding: 15px; border: 2px solid var(--primary);
+            color: white; text-decoration: none; border-radius: 12px;
+            font-weight: bold; transition: 0.3s; background: rgba(0, 210, 255, 0.1);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .main-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 20px var(--primary); }
+
+        .apply-btn { border-color: var(--secondary); background: rgba(255, 0, 255, 0.1); }
+        .apply-btn:hover { background: var(--secondary); box-shadow: 0 0 20px var(--secondary); }
+
+        /* قسم المميزات */
+        .features { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: #111; padding: 30px; border-radius: 15px; border: 1px solid #222; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="nav-logo">VORTEX</a>
+        <div style="font-size: 0.8rem;">
+            <a href="https://discord.gg/ydptj63w4Q" style="color:white; text-decoration:none;">الديسكورد</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 class="hero-title">VORTEX</h1>
+        <p style="color: #888; margin-top: 10px;">المجتمع الأ
