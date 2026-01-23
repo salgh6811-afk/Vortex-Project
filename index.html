@@ -17,7 +17,7 @@
             background-color: var(--bg);
             font-family: 'Segoe UI', Roboto, sans-serif;
             color: white; scroll-behavior: smooth; overflow-x: hidden;
-            user-select: none; /* حماية النسخ */
+            user-select: none;
         }
 
         /* --- الهيدر الاحترافي --- */
@@ -41,6 +41,7 @@
             position: relative; overflow: hidden;
         }
 
+        /* حركة الفورتكس في الخلفية */
         .hero::before {
             content: ''; position: absolute; width: 200%; height: 200%;
             background: conic-gradient(from 0deg, transparent, var(--primary), transparent);
@@ -60,6 +61,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.4s; text-align: center;
         }
         .feat-card:hover { transform: translateY(-10px); border-color: var(--primary); background: rgba(0, 210, 255, 0.05); }
+        .feat-card i { font-size: 2.5rem; color: var(--primary); display: block; margin-bottom: 20px; }
         .feat-card h3 { margin-bottom: 15px; font-size: 1.5rem; }
 
         /* --- قسم التقديمات --- */
@@ -114,9 +116,11 @@
 
     <section id="apply" class="apply-section">
         <h2 style="font-size: 2.5rem; margin-bottom: 20px;">انضم لفريق الإدارة</h2>
+        <p style="color: #888;">نبحث عن المبدعين والشخصيات القيادية لتطوير مجتمعنا</p>
+        
         <div class="btn-container">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform" target="_blank" class="main-btn special-btn">تقديم إدارة عليا ⭐</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform" target="_blank" class="main-btn special-btn">تقديم إدارة عادية 🛡️</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform?usp=dialog" target="_blank" class="main-btn special-btn">تقديم إدارة عليا ⭐</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform?usp=dialog" target="_blank" class="main-btn special-btn">تقديم إدارة عادية 🛡️</a>
             <a href="https://discord.gg/ydptj63w4Q" target="_blank" class="main-btn">سيرفر الديسكورد 🚀</a>
         </div>
     </section>
@@ -126,27 +130,21 @@
     </footer>
 
     <script>
-        // تفعيل حركات الظهور
         ScrollReveal().reveal('.feat-card', { delay: 200, distance: '50px', origin: 'bottom', interval: 100 });
         ScrollReveal().reveal('.hero-content', { delay: 300, scale: 0.85 });
 
-        // --- حماية التشويش (التثبيت النهائي) ---
+        // --- حماية التشويش (التثبيت النهائي بدون تغيير كودك) ---
         (function() {
-            // 1. منع الأزرار والاختصارات
             document.onkeydown = function(e) {
                 if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || (e.ctrlKey && e.keyCode == 85)) {
                     return false;
                 }
             };
-
-            // 2. قنبلة التشويش (تعطيل المتصفح عند محاولة الفحص)
             setInterval(function() {
                 var start = new Date();
-                debugger; // هذا يوقف المتصفح تماماً إذا فُتحت أدوات المطورين
+                debugger; 
                 var end = new Date();
-                if (end - start > 100) {
-                    window.location.reload(); // إعادة تحميل الصفحة لو حاول يتذاكى
-                }
+                if (end - start > 100) { window.location.reload(); }
             }, 100);
         })();
     </script>
