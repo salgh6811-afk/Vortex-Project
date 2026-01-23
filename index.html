@@ -9,10 +9,46 @@
             margin: 0; padding: 0; height: 100%;
             background-color: #000000;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
             color: white;
+            overflow-x: hidden;
         }
 
+        /* --- تنسيق الشريط العلوي (Navbar) --- */
+        .navbar {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #00d2ff;
+            z-index: 2000;
+            box-sizing: border-box;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d2ff;
+            text-decoration: none;
+            text-shadow: 0 0 10px #00d2ff;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff00ff;
+        }
+
+        /* --- الحاوية الرئيسية --- */
         .vortex-container {
             height: 100vh;
             display: flex;
@@ -20,13 +56,13 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding-top: 60px; /* عشان ما يغطي النوافذ */
         }
 
         .vortex-title {
             font-size: clamp(2.5rem, 8vw, 5rem);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-weight: bold;
-            color: #fff;
             text-shadow: 0 0 20px #00d2ff;
         }
 
@@ -35,6 +71,7 @@
             grid-template-columns: repeat(2, 1fr); 
             gap: 15px; 
             max-width: 600px;
+            width: 90%;
         }
 
         .main-btn {
@@ -42,12 +79,15 @@
             border: 2px solid #00d2ff;
             color: white;
             text-decoration: none;
-            border-radius: 15px;
+            border-radius: 12px;
             font-weight: bold;
-            background: rgba(0, 210, 255, 0.1);
+            background: rgba(0, 210, 255, 0.05);
             transition: 0.3s;
             cursor: pointer;
             font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .main-btn:hover {
@@ -57,36 +97,40 @@
             transform: translateY(-3px);
         }
 
-        .apply-btn { 
-            border-color: #ff00ff; 
-            background: rgba(255, 0, 255, 0.1); 
-        }
-        .apply-btn:hover { 
-            background: #ff00ff; 
-            box-shadow: 0 0 20px #ff00ff; 
-        }
+        .apply-btn { border-color: #ff00ff; background: rgba(255, 0, 255, 0.05); }
+        .apply-btn:hover { background: #ff00ff; box-shadow: 0 0 20px #ff00ff; }
 
+        /* --- النوافذ المنبثقة --- */
         .modal {
-            display: none; position: fixed; z-index: 1000;
+            display: none; position: fixed; z-index: 3000;
             left: 0; top: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.9); backdrop-filter: blur(15px);
         }
 
         .modal-content {
-            background: #111; margin: 5% auto; padding: 25px;
-            border: 1px solid #00d2ff; width: 85%; max-width: 650px;
-            border-radius: 20px; max-height: 80vh; overflow-y: auto;
-            color: white; text-align: right;
+            background: #111; margin: 10% auto; padding: 25px;
+            border: 1px solid #00d2ff; width: 85%; max-width: 600px;
+            border-radius: 20px; text-align: right;
         }
 
-        .close-btn { color: #ff00ff; float: left; font-size: 35px; cursor: pointer; }
-        .rule-item { margin-bottom: 15px; border-right: 3px solid #00d2ff; padding-right: 15px; }
+        .close-btn { color: #ff00ff; float: left; font-size: 30px; cursor: pointer; }
+        .rule-item { margin-bottom: 12px; border-right: 3px solid #00d2ff; padding-right: 15px; }
     </style>
 </head>
 <body>
 
+    <nav class="navbar">
+        <a href="#" class="nav-logo">VORTEX</a>
+        <div class="nav-links">
+            <a href="https://discord.gg/ydptj63w4Q" target="_blank">الديسكورد</a>
+            <a href="#" onclick="showRules()">القوانين</a>
+            <a href="https://discord.com/channels/1461481866631712932/1461481869513326687" target="_blank">الدعم</a>
+        </div>
+    </nav>
+
     <div class="vortex-container">
         <h1 class="vortex-title">Vortex Community</h1>
+        
         <div class="btn-group">
             <a href="https://discord.gg/ydptj63w4Q" target="_blank" class="main-btn" style="grid-column: span 2;">دخول السيرفر 🚀</a>
             
@@ -94,7 +138,6 @@
             <a href="https://discord.com/channels/1461481866631712932/1461481869513326687" target="_blank" class="main-btn">الدعم الفني 🛠️</a>
             
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcn7F5WYw_lUJzmpqXwV-Q1BbPvX6fccFW8sb7QS9WwSU1sQ/viewform?usp=dialog" target="_blank" class="main-btn apply-btn">تقديم إدارة عليا ⭐</a>
-            
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScHlhU2t0GitwGiVvfR6Vh39C7Jev1vitUb9UESe3jchbvIqw/viewform?usp=dialog" target="_blank" class="main-btn apply-btn">تقديم إدارة عادية 🛡️</a>
         </div>
     </div>
@@ -102,12 +145,12 @@
     <div id="rulesModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="hideRules()">&times;</span>
-            <h2 style="text-align: center; color: #ff00ff; margin-bottom: 25px;">📜 قوانين Vortex</h2>
-            <div class="rule-item">1. الاحترام المتبادل أساس التعامل في السيرفر.</div>
-            <div class="rule-item">2. يمنع السبام أو إزعاج الأعضاء بأي وسيلة.</div>
-            <div class="rule-item">3. الالتزام بالرومات المخصصة لكل موضوع.</div>
-            <div class="rule-item">4. يمنع نشر الروابط الخارجية أو الإعلانات دون إذن.</div>
-            <div class="rule-item">5. قرارات الإدارة نهائية وتهدف لمصلحة الجميع.</div>
+            <h2 style="text-align: center; color: #ff00ff;">📜 قوانين Vortex</h2>
+            <div class="rule-item">1. الاحترام المتبادل بين الجميع.</div>
+            <div class="rule-item">2. يمنع السبام والإزعاج.</div>
+            <div class="rule-item">3. الالتزام بالمحتوى اللائق.</div>
+            <div class="rule-item">4. يمنع نشر الروابط الخارجية دون إذن.</div>
+            <div class="rule-item">5. قرارات الإدارة نهائية.</div>
         </div>
     </div>
 
