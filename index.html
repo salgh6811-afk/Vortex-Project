@@ -4,72 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌀</text></svg>">
-    
     <title>Vortex Community | الواجهة الرسمية</title>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/scrollreveal"></script>
-    
     <style>
-        :root {
-            --primary: #00d2ff;
-            --secondary: #ff00ff;
-            --bg: #050505;
-        }
+        :root { --primary: #00d2ff; --secondary: #ff00ff; --bg: #050505; }
+        body, html { margin: 0; padding: 0; background-color: var(--bg); font-family: 'Segoe UI', sans-serif; color: white; scroll-behavior: smooth; overflow-x: hidden; user-select: none; }
 
-        body, html {
-            margin: 0; padding: 0;
-            background-color: var(--bg);
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            color: white; scroll-behavior: smooth; overflow-x: hidden;
-            user-select: none; /* حماية من النسخ */
-        }
-
-        /* --- Navbar --- */
-        .navbar {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(15px);
-            padding: 15px 8%; display: flex; justify-content: space-between;
-            align-items: center; z-index: 2000; border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-            box-sizing: border-box;
-        }
-
+        /* Navbar */
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(15px); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; border-bottom: 1px solid rgba(0, 210, 255, 0.2); box-sizing: border-box; }
         .nav-logo { font-size: 1.8rem; font-weight: 900; color: var(--primary); text-decoration: none; text-shadow: 0 0 15px var(--primary); }
-        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; font-size: 0.9rem; }
 
-        /* --- Hero --- */
-        .hero {
-            height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            background: radial-gradient(circle at center, #111 0%, #000 100%);
-        }
-
-        .vortex-logo-main {
-            font-size: clamp(4rem, 15vw, 8rem); font-weight: 900;
-            color: #fff; text-shadow: 0 0 30px var(--primary);
-            margin-bottom: 5px;
-        }
-
-        /* الزر الذي طلبته في المنتصف */
-        .center-btn {
-            margin-top: 25px;
-            padding: 15px 40px; border-radius: 50px; border: 2px solid var(--primary);
-            color: white; text-decoration: none; font-weight: bold; transition: 0.3s;
-            background: transparent; cursor: pointer;
-        }
-        .center-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 30px var(--primary); }
-
-        /* --- قسم البطاقات --- */
-        .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        /* Hero Section - التأكد من توسيط كل شيء */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #111 0%, #000 100%); position: relative; }
+        .vortex-logo-main { font-size: clamp(4rem, 15vw, 8rem); font-weight: 900; color: #fff; text-shadow: 0 0 30px var(--primary); margin: 0; }
         
-        .feat-card {
-            background: rgba(255, 255, 255, 0.03); padding: 50px 30px; border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; transition: 0.4s;
+        /* الزر المطلوب في المنتصف */
+        .center-btn {
+            display: inline-block; margin-top: 30px; padding: 15px 45px; border-radius: 50px; 
+            border: 2px solid var(--primary); color: white; text-decoration: none; font-weight: bold; 
+            font-size: 1.2rem; transition: 0.3s; background: rgba(0, 210, 255, 0.1); z-index: 100;
         }
-        .feat-card:hover { transform: translateY(-10px); border-color: var(--primary); background: rgba(0, 210, 255, 0.05); }
-        .feat-card h3 { font-size: 1.6rem; margin-bottom: 15px; }
+        .center-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 40px var(--primary); transform: scale(1.05); }
 
-        /* --- قسم التقديمات --- */
-        .apply-section { padding: 80px 8%; text
+        /* Features */
+        .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .feat-card { background: rgba(255, 255, 255, 0.03); padding: 50px 30px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; transition: 0.4s; }
+        .feat-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+
+        /* Apply Section */
+        .apply-section { padding: 80px 8%; text-align: center; }
+        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
+        .v-btn { padding: 12px 30px; border-radius: 50px; border: 2px solid var(--primary); color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .v-btn:hover {
