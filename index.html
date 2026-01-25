@@ -9,29 +9,35 @@
         :root { --primary: #00d2ff; --secondary: #ff00ff; --bg: #050505; }
         body, html { margin: 0; padding: 0; background-color: var(--bg); font-family: 'Segoe UI', sans-serif; color: white; scroll-behavior: smooth; overflow-x: hidden; user-select: none; }
         
-        /* الهيدر الأصلي حقك */
+        /* الهيدر الأصلي الفخم */
         .navbar { position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(15px); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; border-bottom: 1px solid rgba(0, 210, 255, 0.2); box-sizing: border-box; }
         .nav-logo { font-size: 1.8rem; font-weight: 900; color: var(--primary); text-decoration: none; text-shadow: 0 0 15px var(--primary); }
         .nav-links a { color: white; text-decoration: none; margin-left: 25px; font-weight: 500; font-size: 0.9rem; }
 
-        /* القسم الرئيسي (VORTEX في النص) */
+        /* ستايل VORTEX الكبير في النص */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle at center, #111 0%, #000 100%); position: relative; overflow: hidden; }
-        .hero-title { font-size: clamp(3rem, 10vw, 6rem); margin-bottom: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 5px; }
-        .hero-tagline { font-size: 1.2rem; color: #aaa; margin-bottom: 30px; }
+        .hero-title { font-size: clamp(3rem, 10vw, 6rem); margin-bottom: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 5px; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+        .hero-tagline { font-size: 1.2rem; color: #aaa; margin-bottom: 30px; text-align: center; }
 
-        /* الأزرار بنفس ستايلك القديم */
-        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; z-index: 10; }
-        .main-btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; cursor: pointer; border: 2px solid var(--primary); color: white; background: transparent; }
+        /* الزر الأصلي "ابدأ رحلتك معنا" */
+        .main-btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; cursor: pointer; border: 2px solid var(--primary); color: white; background: transparent; display: inline-block; }
         .main-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 30px var(--primary); }
-        .special-btn { border-color: var(--secondary); }
-        .special-btn:hover { background: var(--secondary); box-shadow: 0 0 30px var(--secondary); }
 
-        /* واجهة التقديم (تظهر كـ Popup فوق التصميم) */
-        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
-        .modal-content { background: #0a0a0a; padding: 30px; border-radius: 20px; border: 1px solid var(--primary); width: 90%; max-width: 500px; position: relative; }
-        .close-btn { position: absolute; top: 10px; left: 20px; font-size: 25px; cursor: pointer; color: var(--primary); }
-        
-        input, textarea { width: 100%; padding: 12px; margin: 10px 0; background: #111; border: 1px solid #222; border-radius: 8px; color: white; box-sizing: border-box; }
+        /* نافذة اختيار الرتبة (تظهر عند الضغط على ابدأ رحلتك) */
+        .rank-selector { display: none; gap: 15px; margin-top: 20px; animation: fadeInUp 0.5s ease; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .rank-btn { padding: 12px 25px; border-radius: 50px; border: 2px solid; cursor: pointer; font-weight: bold; background: transparent; color: white; transition: 0.3s; }
+        .btn-high { border-color: var(--secondary); }
+        .btn-high:hover { background: var(--secondary); box-shadow: 0 0 20px var(--secondary); }
+        .btn-low { border-color: var(--primary); }
+        .btn-low:hover { background: var(--primary); color: black; box-shadow: 0 0 20px var(--primary); }
+
+        /* نافذة التقديم (Popup) */
+        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+        .modal-content { background: #0a0a0a; padding: 30px; border-radius: 20px; border: 1px solid var(--primary); width: 90%; max-width: 450px; position: relative; box-shadow: 0 0 50px rgba(0, 210, 255, 0.1); }
+        .close-btn { position: absolute; top: 15px; left: 20px; font-size: 25px; cursor: pointer; color: var(--primary); }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; background: #111; border: 1px solid #222; border-radius: 8px; color: white; box-sizing: border-box; outline: none; }
+        input:focus { border-color: var(--primary); }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -47,29 +53,38 @@
         <h1 class="hero-title">VORTEX</h1>
         <p class="hero-tagline">أكثر من مجرد سيرفر.. نحن عائلة</p>
         
-        <div class="btn-container">
-            <button onclick="showModal('إدارة عليا ⭐')" class="main-btn special-btn">تقديم إدارة عليا ⭐</button>
-            <button onclick="showModal('إدارة صغرى 🛡️')" class="main-btn">تقديم إدارة صغرى 🛡️</button>
+        <div id="start-div">
+            <button onclick="toggleRanks()" class="main-btn">ابدأ رحلتك معنا</button>
+        </div>
+
+        <div id="rank-choice" class="rank-selector">
+            <button onclick="showModal('إدارة عليا ⭐')" class="rank-btn btn-high">تقديم إدارة عليا ⭐</button>
+            <button onclick="showModal('إدارة صغرى 🛡️')" class="rank-btn btn-low">تقديم إدارة صغرى 🛡️</button>
         </div>
     </section>
 
     <div id="applyModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle" style="text-align:center; color:var(--primary);">تقديم</h2>
+            <h2 id="modalTitle" style="text-align:center; color:var(--primary); margin-top:0;">تقديم</h2>
             <form id="webhookForm">
                 <input type="hidden" id="rankType">
                 <input type="text" id="name" placeholder="اسمك الكامل" required>
-                <input type="text" id="discord" placeholder="يوزرك (example#0000)" required>
+                <input type="text" id="discord" placeholder="يوزرك في الديسكورد" required>
                 <input type="number" id="age" placeholder="العمر" required>
-                <textarea id="exp" rows="4" placeholder="خبراتك السابقة..." required></textarea>
-                <button type="submit" class="main-btn" style="width:100%; background:var(--primary); color:black;">إرسال للديسكورد ✅</button>
+                <textarea id="exp" rows="4" placeholder="خبراتك السابقة وكيف بتفيدنا؟" required></textarea>
+                <button type="submit" class="main-btn" style="width:100%; background:var(--primary); color:black; border:none;">إرسال للديسكورد ✅</button>
             </form>
         </div>
     </div>
 
     <script>
         const WEBHOOK_URL = "ضع_رابط_الويب_هوك_هنا";
+
+        function toggleRanks() {
+            document.getElementById('start-div').style.display = 'none';
+            document.getElementById('rank-choice').style.display = 'flex';
+        }
 
         function showModal(rank) {
             document.getElementById('applyModal').style.display = 'flex';
@@ -81,24 +96,29 @@
 
         document.getElementById('webhookForm').onsubmit = async (e) => {
             e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.innerText = "جاري الإرسال...";
+            
             const data = {
                 embeds: [{
-                    title: "📩 طلب جديد: " + document.getElementById('rankType').value,
+                    title: "📩 طلب انضمام جديد: " + document.getElementById('rankType').value,
                     color: 3447003,
                     fields: [
                         { name: "الاسم", value: document.getElementById('name').value, inline: true },
                         { name: "العمر", value: document.getElementById('age').value, inline: true },
                         { name: "الديسكورد", value: document.getElementById('discord').value },
                         { name: "الخبرات", value: document.getElementById('exp').value }
-                    ]
+                    ],
+                    footer: { text: "Vortex Community System" }
                 }]
             };
+
             await fetch(WEBHOOK_URL, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
-            alert("تم الإرسال بنجاح!");
-            closeModal();
+            alert("تم إرسال طلبك بنجاح!");
+            location.reload();
         };
 
-        // حماية التشويش لمنع الفحص
+        // حماية التشويش (Debugger)
         setInterval(function() {
             var start = new Date(); debugger; var end = new Date();
             if (end - start > 100) { window.location.reload(); }
