@@ -3,113 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vortex Community | نظام التقديمات الجديد</title>
+    <title>Vortex Community | المجتمع الأقوى</title>
     <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         :root { --primary: #00d2ff; --secondary: #ff00ff; --bg: #050505; }
         body, html { margin: 0; padding: 0; background-color: var(--bg); font-family: 'Segoe UI', sans-serif; color: white; scroll-behavior: smooth; overflow-x: hidden; user-select: none; }
         
-        /* الهيدر */
+        /* الهيدر الأصلي حقك */
         .navbar { position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(15px); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; border-bottom: 1px solid rgba(0, 210, 255, 0.2); box-sizing: border-box; }
         .nav-logo { font-size: 1.8rem; font-weight: 900; color: var(--primary); text-decoration: none; text-shadow: 0 0 15px var(--primary); }
+        .nav-links a { color: white; text-decoration: none; margin-left: 25px; font-weight: 500; font-size: 0.9rem; }
 
-        /* القسم الرئيسي */
-        .hero { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #111 0%, #000 100%); }
-        .hero-title { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; text-transform: uppercase; letter-spacing: 5px; margin: 0; }
+        /* القسم الرئيسي (VORTEX في النص) */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle at center, #111 0%, #000 100%); position: relative; overflow: hidden; }
+        .hero-title { font-size: clamp(3rem, 10vw, 6rem); margin-bottom: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 5px; }
+        .hero-tagline { font-size: 1.2rem; color: #aaa; margin-bottom: 30px; }
 
-        /* قسم التقديمات الجديد */
-        .apply-section { padding: 80px 8%; text-align: center; }
-        .apply-container { background: #0a0a0a; padding: 40px; border-radius: 20px; border: 1px solid #1a1a1a; max-width: 600px; margin: 0 auto; display: none; }
-        
-        .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px; }
+        /* الأزرار بنفس ستايلك القديم */
+        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; z-index: 10; }
         .main-btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; cursor: pointer; border: 2px solid var(--primary); color: white; background: transparent; }
         .main-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 30px var(--primary); }
         .special-btn { border-color: var(--secondary); }
         .special-btn:hover { background: var(--secondary); box-shadow: 0 0 30px var(--secondary); }
 
-        /* الخانات */
-        .input-group { text-align: right; margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; color: #888; }
-        input, textarea { width: 100%; padding: 12px; background: #111; border: 1px solid #222; border-radius: 8px; color: white; box-sizing: border-box; }
+        /* واجهة التقديم (تظهر كـ Popup فوق التصميم) */
+        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
+        .modal-content { background: #0a0a0a; padding: 30px; border-radius: 20px; border: 1px solid var(--primary); width: 90%; max-width: 500px; position: relative; }
+        .close-btn { position: absolute; top: 10px; left: 20px; font-size: 25px; cursor: pointer; color: var(--primary); }
+        
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; background: #111; border: 1px solid #222; border-radius: 8px; color: white; box-sizing: border-box; }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
     <nav class="navbar">
         <a href="#" class="nav-logo">VORTEX</a>
-        <a href="https://discord.gg/ydptj63w4Q" target="_blank" class="main-btn" style="padding: 8px 20px; font-size: 0.8rem;">سيرفر الديسكورد 🚀</a>
+        <div class="nav-links">
+            <a href="https://discord.gg/ydptj63w4Q" target="_blank">انضم لنا 🚀</a>
+        </div>
     </nav>
 
     <section class="hero">
         <h1 class="hero-title">VORTEX</h1>
-        <p style="color:#aaa;">اختر الرتبة التي تناسب خبراتك</p>
-        <div class="btn-group">
-            <button onclick="openApply('إدارة عليا ⭐')" class="main-btn special-btn">تقديم إدارة عليا ⭐</button>
-            <button onclick="openApply('إدارة صغرى 🛡️')" class="main-btn">تقديم إدارة صغرى 🛡️</button>
+        <p class="hero-tagline">أكثر من مجرد سيرفر.. نحن عائلة</p>
+        
+        <div class="btn-container">
+            <button onclick="showModal('إدارة عليا ⭐')" class="main-btn special-btn">تقديم إدارة عليا ⭐</button>
+            <button onclick="showModal('إدارة صغرى 🛡️')" class="main-btn">تقديم إدارة صغرى 🛡️</button>
         </div>
     </section>
 
-    <section id="apply-form-section" class="apply-section" style="display:none;">
-        <div class="apply-container">
-            <h2 id="form-title" style="color:var(--primary);">طلب انضمام</h2>
-            <form id="vortexForm">
-                <input type="hidden" id="rank">
-                <div class="input-group">
-                    <label>الاسم الكامل</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="input-group">
-                    <label>يوزرك في الديسكورد</label>
-                    <input type="text" id="discord_user" placeholder="example#0000" required>
-                </div>
-                <div class="input-group">
-                    <label>العمر</label>
-                    <input type="number" id="age" required>
-                </div>
-                <div class="input-group">
-                    <label>لماذا تريد الانضمام وما هي خبراتك؟</label>
-                    <textarea id="experience" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="main-btn" style="width:100%;">إرسال الطلب للديسكورد 📩</button>
+    <div id="applyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle" style="text-align:center; color:var(--primary);">تقديم</h2>
+            <form id="webhookForm">
+                <input type="hidden" id="rankType">
+                <input type="text" id="name" placeholder="اسمك الكامل" required>
+                <input type="text" id="discord" placeholder="يوزرك (example#0000)" required>
+                <input type="number" id="age" placeholder="العمر" required>
+                <textarea id="exp" rows="4" placeholder="خبراتك السابقة..." required></textarea>
+                <button type="submit" class="main-btn" style="width:100%; background:var(--primary); color:black;">إرسال للديسكورد ✅</button>
             </form>
         </div>
-    </section>
+    </div>
 
     <script>
-        // --- ضع رابط الـ Webhook الخاص بك هنا ---
-        const WEBHOOK_URL = "ضع_رابط_الويب_هوك_هنا"; 
+        const WEBHOOK_URL = "ضع_رابط_الويب_هوك_هنا";
 
-        function openApply(rank) {
-            document.getElementById('apply-form-section').style.display = 'block';
-            document.querySelector('.apply-container').style.display = 'block';
-            document.getElementById('form-title').innerText = "طلب انضمام: " + rank;
-            document.getElementById('rank').value = rank;
-            window.location.hash = "apply-form-section";
+        function showModal(rank) {
+            document.getElementById('applyModal').style.display = 'flex';
+            document.getElementById('modalTitle').innerText = "تقديم: " + rank;
+            document.getElementById('rankType').value = rank;
         }
 
-        document.getElementById('vortexForm').onsubmit = async (e) => {
+        function closeModal() { document.getElementById('applyModal').style.display = 'none'; }
+
+        document.getElementById('webhookForm').onsubmit = async (e) => {
             e.preventDefault();
-            const btn = e.target.querySelector('button');
-            btn.innerText = "جاري الإرسال...";
-            
             const data = {
                 embeds: [{
-                    title: "📨 طلب تقديم جديد!",
+                    title: "📩 طلب جديد: " + document.getElementById('rankType').value,
                     color: 3447003,
                     fields: [
-                        { name: "الرتبة المطلوبة", value: document.getElementById('rank').value },
                         { name: "الاسم", value: document.getElementById('name').value, inline: true },
                         { name: "العمر", value: document.getElementById('age').value, inline: true },
-                        { name: "الديسكورد", value: document.getElementById('discord_user').value },
-                        { name: "الخبرات", value: document.getElementById('experience').value }
-                    ],
-                    footer: { text: "Vortex Recruitment System" }
+                        { name: "الديسكورد", value: document.getElementById('discord').value },
+                        { name: "الخبرات", value: document.getElementById('exp').value }
+                    ]
                 }]
             };
-
-            await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-            alert("تم إرسال طلبك بنجاح!");
-            location.reload();
+            await fetch(WEBHOOK_URL, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data) });
+            alert("تم الإرسال بنجاح!");
+            closeModal();
         };
 
         // حماية التشويش لمنع الفحص
