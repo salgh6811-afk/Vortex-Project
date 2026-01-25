@@ -26,6 +26,7 @@
         .main-btn { padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.4s; cursor: pointer; border: 2px solid var(--primary); color: white; background: transparent; z-index: 10; display: inline-block; }
         .main-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 40px var(--primary); transform: scale(1.05); }
 
+        /* المربعات الثلاثة */
         .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; position: relative; z-index: 10; background: var(--bg); }
         .feat-card { background: rgba(255, 255, 255, 0.02); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; }
         .feat-card h3 { color: var(--primary); margin-bottom: 15px; }
@@ -46,6 +47,7 @@
     </nav>
 
     <section class="hero">
+        <img src="https://i.postimg.cc/mD4m3vX4/V-Logo.png" alt="Vortex Logo" style="width: 150px; z-index: 10; margin-bottom: 20px;">
         <h1 class="hero-title">VORTEX</h1>
         <p class="hero-tagline">أكثر من مجرد سيرفر.. نحن عائلة</p>
         <a href="#apply" class="main-btn">ابدأ رحلتك معنا</a>
@@ -81,7 +83,7 @@
     <script>
         ScrollReveal().reveal('.feat-card', { delay: 200, origin: 'bottom', distance: '30px', interval: 150 });
         
-        // الويب هوك الجديد اللي أرسلته
+        // الويب هوك الجديد اللي بدون منشن
         const WEBHOOK_URL = "https://discord.com/api/webhooks/1464928431820116088/U_em3eCE592aMcBNSeE3rqzlJsptmFTCBZk5aLGE5rSlA6SU7TQH4pObjWOcItt2LsJY";
 
         function showModal(rank) {
@@ -98,16 +100,17 @@
             btn.innerText = "جاري الإرسال...";
             btn.disabled = true;
 
-            const LOGO_URL = "https://i.postimg.cc/mD4m3vX4/V-Logo.png"; // اللوغو الفضي الجديد
+            // رابط اللوغو الفضي اللي طلبت وضعه في الكود
+            const IMAGE_LINK = "https://i.postimg.cc/mD4m3vX4/V-Logo.png";
 
             const data = {
-                username: "VORTEX BOT 🛡️",
-                avatar_url: LOGO_URL,
-                content: "📢 **تم استلام طلب توظيف جديد!**", // تم حذف المنشن هنا
+                username: "VORTEX SYSTEM 🛡️",
+                avatar_url: IMAGE_LINK, // وضع الصورة كصورة شخصية للبوت
+                content: "📢 **استمارة تقديم جديدة وصلت!**",
                 embeds: [{
-                    title: "🚀 نظام التوظيف | VORTEX",
+                    title: "🚀 ملف المتقدم لـ VORTEX",
                     color: 0x00d2ff,
-                    thumbnail: { url: LOGO_URL },
+                    thumbnail: { url: IMAGE_LINK }, // وضع الصورة داخل الرسالة
                     fields: [
                         { name: "📋 الرتبة", value: `> **${document.getElementById('rankType').value}**` },
                         { name: "👤 المتقدم", value: `\`${document.getElementById('name').value}\``, inline: true },
@@ -115,7 +118,7 @@
                         { name: "🎮 الديسكورد", value: `**${document.getElementById('discord').value}**` },
                         { name: "📑 الخبرات", value: `\`\`\`${document.getElementById('exp').value}\`\`\`` }
                     ],
-                    footer: { text: "Vortex Management", icon_url: LOGO_URL },
+                    footer: { text: "Vortex Bot Management", icon_url: IMAGE_LINK },
                     timestamp: new Date()
                 }]
             };
@@ -128,14 +131,14 @@
                 });
 
                 if (response.ok) {
-                    alert("تم الإرسال بنجاح! شيك الديسكورد");
+                    alert("تم إرسال طلبك بنجاح! شيك الديسكورد");
                     closeModal();
                     document.getElementById('webhookForm').reset();
                 } else {
                     throw new Error();
                 }
             } catch (err) {
-                alert("مشكلة في الإرسال! تأكد من إعدادات الويب هوك الجديد.");
+                alert("حدث خطأ! تأكد من إعدادات الويب هوك في الديسكورد.");
             } finally {
                 btn.innerText = "إرسال الطلب ✅";
                 btn.disabled = false;
