@@ -6,68 +6,56 @@
     <title>Vortex Community | المجتمع الأقوى</title>
     <style>
         :root { --primary: #00d2ff; --secondary: #ff00ff; --bg: #050505; }
-        body { margin: 0; background-color: var(--bg); font-family: 'Segoe UI', sans-serif; color: white; text-align: center; }
+        body, html { margin: 0; padding: 0; background-color: var(--bg); font-family: 'Segoe UI', sans-serif; color: white; overflow-x: hidden; }
         
-        /* الهيدر واللوغو */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle, #101010 0%, #000 100%); }
-        .logo-img { width: 180px; filter: drop-shadow(0 0 20px var(--primary)); margin-bottom: 20px; }
-        .hero-title { font-size: 6rem; font-weight: 900; color: white; text-shadow: 0 0 20px var(--primary); margin: 10px 0; }
-        
-        /* زر انضم لنا المتحرك */
-        .join-btn { 
-            padding: 15px 40px; font-size: 1.2rem; font-weight: bold; color: white; 
-            background: transparent; border: 2px solid var(--primary); border-radius: 50px; 
-            cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block;
-            animation: pulse 2s infinite;
+        /* واجهتك المفضلة */
+        .hero { 
+            height: 100vh; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; 
+            background: radial-gradient(circle, #001f3f 0%, #050505 100%); 
         }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(0, 210, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
-        }
-        .join-btn:hover { background: var(--primary); color: black; transform: scale(1.1); }
 
-        /* قسم القنوات والأقسام */
-        .sections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 50px 10%; }
-        .section-card { background: #111; padding: 25px; border-radius: 15px; border: 1px solid #222; transition: 0.3s; }
-        .section-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .section-card h3 { color: var(--primary); margin-bottom: 10px; }
-        .section-card p { font-size: 0.9rem; color: #ccc; line-height: 1.6; }
+        /* حل مشكلة الصورة المعطلة */
+        .logo-box {
+            width: 200px; height: 200px; margin-bottom: 20px;
+            background: url('https://i.postimg.cc/mD4m3vX4/V-Logo.png') no-repeat center;
+            background-size: contain;
+            filter: drop-shadow(0 0 15px var(--primary));
+        }
+
+        .hero-title { 
+            font-size: 8rem; font-weight: 900; letter-spacing: 10px; 
+            text-shadow: 0 0 30px var(--primary); margin: 0; 
+        }
+
+        .hero-tagline { font-size: 1.5rem; color: #aaa; margin-top: 10px; }
+
+        .main-btn { 
+            margin-top: 30px; padding: 15px 50px; border: 2px solid var(--primary); 
+            background: transparent; color: white; border-radius: 50px; 
+            font-weight: bold; cursor: pointer; transition: 0.4s; text-decoration: none;
+        }
+        .main-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 30px var(--primary); }
+
+        .nav-btn {
+            position: absolute; top: 20px; left: 20px;
+            background: #000; border: 1px solid var(--primary);
+            padding: 8px 15px; border-radius: 20px; color: white; text-decoration: none;
+        }
     </style>
 </head>
 <body>
 
+    <a href="https://discord.gg/ydptj63w4Q" class="nav-btn">🚀 انضم لنا</a>
+
     <section class="hero">
-        <img src="https://i.ibb.co/LzNf9mS/vortex-logo.png" alt="Vortex Logo" class="logo-img">
+        <div class="logo-box"></div>
+        
         <h1 class="hero-title">VORTEX</h1>
-        <p style="font-size: 1.5rem; color: #aaa;">أكثر من مجرد سيرفر.. نحن عائلة</p>
-        <br>
-        <a href="https://discord.gg/ydptj63w4Q" target="_blank" class="join-btn">انضم لنا الآن 🚀</a>
+        <p class="hero-tagline">أكثر من مجرد سيرفر.. نحن عائلة</p>
+        
+        <a href="#apply" class="main-btn">ابدأ رحلتك معنا</a>
     </section>
-
-    <h2 style="margin-top: 50px; font-size: 2.5rem;">أقسام السيرفر المميزة</h2>
-    <div class="sections-grid">
-        <div class="section-card">
-            <h3>🌙 أذكار المسلم</h3>
-            <p>قنوات مخصصة للأذكار والقرآن الكريم لتهدئة النفوس.</p>
-        </div>
-        <div class="section-card">
-            <h3>🤖 أوامر البوتات</h3>
-            <p>أنظمة متطورة للأوامر والموسيقى والمستويات التفاعلية.</p>
-        </div>
-        <div class="section-card">
-            <h3>🎫 نظام التذاكر</h3>
-            <p>دعم فني سريع وقوانين صارمة لضمان حقك وحل مشاكلك.</p>
-        </div>
-        <div class="section-card">
-            <h3>📈 المستويات</h3>
-            <p>نظام XP وترقيات تلقائية للأعضاء المتفاعلين في الشات.</p>
-        </div>
-    </div>
-
-    <footer style="padding: 40px; color: #555;">
-        Vortex Community &copy; 2026 | مبرمج بواسطة الذكاء الاصطناعي لصالح صالح
-    </footer>
 
 </body>
 </html>
