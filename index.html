@@ -4,146 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vortex Community | المجتمع الأقوى</title>
-    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         :root { --primary: #00d2ff; --secondary: #ff00ff; --bg: #050505; }
-        body, html { margin: 0; padding: 0; background-color: var(--bg); font-family: 'Segoe UI', sans-serif; color: white; scroll-behavior: smooth; overflow-x: hidden; user-select: none; }
+        body { margin: 0; background-color: var(--bg); font-family: 'Segoe UI', sans-serif; color: white; text-align: center; }
         
-        .navbar { position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(15px); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; z-index: 2000; border-bottom: 1px solid rgba(0, 210, 255, 0.2); box-sizing: border-box; }
-        .nav-logo { font-size: 1.8rem; font-weight: 900; color: var(--primary); text-decoration: none; text-shadow: 0 0 15px var(--primary); }
-
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; background: #000; }
-        .hero::before { 
-            content: ''; position: absolute; width: 150vmax; height: 150vmax; 
-            background: conic-gradient(from 0deg, transparent, var(--primary), transparent, var(--secondary), transparent); 
-            animation: rotateBg 8s linear infinite; opacity: 0.15; filter: blur(60px);
+        /* الهيدر واللوغو */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle, #101010 0%, #000 100%); }
+        .logo-img { width: 180px; filter: drop-shadow(0 0 20px var(--primary)); margin-bottom: 20px; }
+        .hero-title { font-size: 6rem; font-weight: 900; color: white; text-shadow: 0 0 20px var(--primary); margin: 10px 0; }
+        
+        /* زر انضم لنا المتحرك */
+        .join-btn { 
+            padding: 15px 40px; font-size: 1.2rem; font-weight: bold; color: white; 
+            background: transparent; border: 2px solid var(--primary); border-radius: 50px; 
+            cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block;
+            animation: pulse 2s infinite;
         }
-        @keyframes rotateBg { 100% { transform: rotate(360deg); } }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 210, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+        }
+        .join-btn:hover { background: var(--primary); color: black; transform: scale(1.1); }
 
-        .hero-title { font-size: clamp(4rem, 15vw, 9rem); font-weight: 900; z-index: 10; text-shadow: 0 0 30px var(--primary); margin: 0; }
-        .hero-tagline { font-size: 1.4rem; color: #aaa; margin-bottom: 35px; z-index: 10; }
-
-        .main-btn { padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.4s; cursor: pointer; border: 2px solid var(--primary); color: white; background: transparent; z-index: 10; display: inline-block; }
-        .main-btn:hover { background: var(--primary); color: black; box-shadow: 0 0 40px var(--primary); transform: scale(1.05); }
-
-        /* المربعات الثلاثة */
-        .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; position: relative; z-index: 10; background: var(--bg); }
-        .feat-card { background: rgba(255, 255, 255, 0.02); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); text-align: center; }
-        .feat-card h3 { color: var(--primary); margin-bottom: 15px; }
-
-        .apply-section { padding: 100px 8%; background: #080808; text-align: center; z-index: 10; position: relative; }
-
-        .modal { display: none; position: fixed; z-index: 5000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); align-items: center; justify-content: center; backdrop-filter: blur(10px); }
-        .modal-content { background: #0a0a0a; padding: 35px; border-radius: 25px; border: 2px solid var(--primary); width: 95%; max-width: 500px; position: relative; }
-        input, textarea { width: 100%; padding: 14px; margin: 12px 0; background: #151515; border: 1px solid #333; border-radius: 10px; color: white; box-sizing: border-box; }
-        .submit-btn { width: 100%; padding: 16px; background: var(--primary); color: black; border: none; border-radius: 10px; font-weight: 900; cursor: pointer; }
+        /* قسم القنوات والأقسام */
+        .sections-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 50px 10%; }
+        .section-card { background: #111; padding: 25px; border-radius: 15px; border: 1px solid #222; transition: 0.3s; }
+        .section-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .section-card h3 { color: var(--primary); margin-bottom: 10px; }
+        .section-card p { font-size: 0.9rem; color: #ccc; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <a href="#" class="nav-logo">VORTEX</a>
-        <a href="https://discord.gg/ydptj63w4Q" target="_blank" style="color:white; text-decoration:none; font-weight:900; border:1px solid var(--primary); padding: 5px 15px; border-radius: 20px;">انضم لنا 🚀</a>
-    </nav>
-
     <section class="hero">
-        <img src="https://i.postimg.cc/mD4m3vX4/V-Logo.png" alt="Vortex Logo" style="width: 150px; z-index: 10; margin-bottom: 20px;">
+        <img src="https://i.ibb.co/LzNf9mS/vortex-logo.png" alt="Vortex Logo" class="logo-img">
         <h1 class="hero-title">VORTEX</h1>
-        <p class="hero-tagline">أكثر من مجرد سيرفر.. نحن عائلة</p>
-        <a href="#apply" class="main-btn">ابدأ رحلتك معنا</a>
+        <p style="font-size: 1.5rem; color: #aaa;">أكثر من مجرد سيرفر.. نحن عائلة</p>
+        <br>
+        <a href="https://discord.gg/ydptj63w4Q" target="_blank" class="join-btn">انضم لنا الآن 🚀</a>
     </section>
 
-    <section class="features">
-        <div class="feat-card"><h3>🎮 فعاليات يومية</h3><p>بطولات وتحديات مستمرة لكل الأعضاء.</p></div>
-        <div class="feat-card"><h3>🛡️ بيئة آمنة</h3><p>نظام حماية متطور وفريق إشراف محترف.</p></div>
-        <div class="feat-card"><h3>🤝 مجتمع متفاعل</h3><p>مكان يجمع المبدعين في أجواء محترمة.</p></div>
-    </section>
-
-    <section id="apply" class="apply-section">
-        <h2 style="font-size: 3rem; margin-bottom: 30px;">انضم لفريق الإدارة</h2>
-        <button onclick="showModal('إدارة عليا ⭐')" class="main-btn" style="border-color:var(--secondary); margin-bottom:10px;">تقديم إدارة عليا ⭐</button>
-        <button onclick="showModal('إدارة صغرى 🛡️')" class="main-btn">تقديم إدارة صغرى 🛡️</button>
-    </section>
-
-    <div id="applyModal" class="modal">
-        <div class="modal-content">
-            <span onclick="closeModal()" style="position:absolute; top:15px; left:20px; cursor:pointer; color:var(--primary); font-size:35px;">&times;</span>
-            <h2 id="modalTitle" style="text-align:center; color:var(--primary);">تقديم</h2>
-            <form id="webhookForm">
-                <input type="hidden" id="rankType">
-                <input type="text" id="name" placeholder="الاسم الكامل" required>
-                <input type="text" id="discord" placeholder="يوزرك في الديسكورد" required>
-                <input type="number" id="age" placeholder="العمر" required>
-                <textarea id="exp" rows="4" placeholder="الخبرات السابقة..." required></textarea>
-                <button type="submit" id="sendBtn" class="submit-btn">إرسال الطلب ✅</button>
-            </form>
+    <h2 style="margin-top: 50px; font-size: 2.5rem;">أقسام السيرفر المميزة</h2>
+    <div class="sections-grid">
+        <div class="section-card">
+            <h3>🌙 أذكار المسلم</h3>
+            <p>قنوات مخصصة للأذكار والقرآن الكريم لتهدئة النفوس.</p>
+        </div>
+        <div class="section-card">
+            <h3>🤖 أوامر البوتات</h3>
+            <p>أنظمة متطورة للأوامر والموسيقى والمستويات التفاعلية.</p>
+        </div>
+        <div class="section-card">
+            <h3>🎫 نظام التذاكر</h3>
+            <p>دعم فني سريع وقوانين صارمة لضمان حقك وحل مشاكلك.</p>
+        </div>
+        <div class="section-card">
+            <h3>📈 المستويات</h3>
+            <p>نظام XP وترقيات تلقائية للأعضاء المتفاعلين في الشات.</p>
         </div>
     </div>
 
-    <script>
-        ScrollReveal().reveal('.feat-card', { delay: 200, origin: 'bottom', distance: '30px', interval: 150 });
-        
-        // الويب هوك الجديد اللي بدون منشن
-        const WEBHOOK_URL = "https://discord.com/api/webhooks/1464928431820116088/U_em3eCE592aMcBNSeE3rqzlJsptmFTCBZk5aLGE5rSlA6SU7TQH4pObjWOcItt2LsJY";
+    <footer style="padding: 40px; color: #555;">
+        Vortex Community &copy; 2026 | مبرمج بواسطة الذكاء الاصطناعي لصالح صالح
+    </footer>
 
-        function showModal(rank) {
-            document.getElementById('applyModal').style.display = 'flex';
-            document.getElementById('modalTitle').innerText = "تقديم: " + rank;
-            document.getElementById('rankType').value = rank;
-        }
-
-        function closeModal() { document.getElementById('applyModal').style.display = 'none'; }
-
-        document.getElementById('webhookForm').onsubmit = async function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('sendBtn');
-            btn.innerText = "جاري الإرسال...";
-            btn.disabled = true;
-
-            // رابط اللوغو الفضي اللي طلبت وضعه في الكود
-            const IMAGE_LINK = "https://i.postimg.cc/mD4m3vX4/V-Logo.png";
-
-            const data = {
-                username: "VORTEX SYSTEM 🛡️",
-                avatar_url: IMAGE_LINK, // وضع الصورة كصورة شخصية للبوت
-                content: "📢 **استمارة تقديم جديدة وصلت!**",
-                embeds: [{
-                    title: "🚀 ملف المتقدم لـ VORTEX",
-                    color: 0x00d2ff,
-                    thumbnail: { url: IMAGE_LINK }, // وضع الصورة داخل الرسالة
-                    fields: [
-                        { name: "📋 الرتبة", value: `> **${document.getElementById('rankType').value}**` },
-                        { name: "👤 المتقدم", value: `\`${document.getElementById('name').value}\``, inline: true },
-                        { name: "🎂 العمر", value: `\`${document.getElementById('age').value}\``, inline: true },
-                        { name: "🎮 الديسكورد", value: `**${document.getElementById('discord').value}**` },
-                        { name: "📑 الخبرات", value: `\`\`\`${document.getElementById('exp').value}\`\`\`` }
-                    ],
-                    footer: { text: "Vortex Bot Management", icon_url: IMAGE_LINK },
-                    timestamp: new Date()
-                }]
-            };
-
-            try {
-                const response = await fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                if (response.ok) {
-                    alert("تم إرسال طلبك بنجاح! شيك الديسكورد");
-                    closeModal();
-                    document.getElementById('webhookForm').reset();
-                } else {
-                    throw new Error();
-                }
-            } catch (err) {
-                alert("حدث خطأ! تأكد من إعدادات الويب هوك في الديسكورد.");
-            } finally {
-                btn.innerText = "إرسال الطلب ✅";
-                btn.disabled = false;
-            }
-        };
-    </script>
 </body>
 </html>
